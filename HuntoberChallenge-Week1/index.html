@@ -92,9 +92,31 @@
     If you like, you can get started on piecing together your functions today. Please remember that the functions must be performed on the provided string in order. If you do things out of order it will get messy very fast.
     It is totally up to you how you want to organize your code. Some may choose to create a master decoding function that calls each helper function as needed, while others may prefer to chain the function calls separately. Up to you.
     Note: Day 2 and Day 5 were side-projects, and their real purpose was to provide you with inputs for this final decoding. Day 2's key characters and Day 5's final count will be used as arguments for Day 3 and Day 6's functions, respectively.
-    Here's the encrypted string for the week, enjoy!</p>
+    Here's the encrypted string for the week, enjoy!
+    <code>const encryptedMsg = "e!!Igv)t5lltBcvbdeDH3dVw!OOtI#Aa.ZMDu7WYpP^VVjDc4I50iv#ylhgmQfs"
+    </code>
+</p>
 <h2>Day 7</h2>
-    <p></p>
+    <p>Oooh, yeah! Here it is, the final function you'll need in your string-decoding arsenal this week. Today's challenge might not be too trying after all the others, but you never know!
+        Today you'll need to create a function that swaps each letter of the alphabet for its opposite. A letter's opposite is one that, if the alphabet were flipped Z-A, would be the same number of letters in, and which would also have the opposite case.
+        Examples:
+    <pre>'A'  // first letter of the alphabet, uppercase
+        'z'  // last letter of the alphabet, lowercase
+        'p'  // 16th letter of the alphabet, lowercase
+        'K'  // 16th letter from *end* of alphabet, uppercase
+        'vCZNKOV: 0 MFNYVI LI KFMXGFZGRLM XSZMTVH'
+        // function replaces letters with opposites
+        'Example: 0 number or punctuation changes'
+    </pre>
+    🧩 Put it all Together
+    Finally! We have every function needed to decode the gobbledygook I shared a week ago! Some of you already figured it out yesterday (bravo!), but let's pretend you didn't.
+    Please use the daily functions, in order, to decode the week's secret message. Then, when you feel good about your result, go ahead and tweet the string with no explanation and #huntober2022, you earned it.
+    <code>const encryptedMsg = "e!!Igv)t5lltBcvbdeDH3dVw!OOtI#Aa.ZMDu7WYpP^VVjDc4I50iv#ylhgmQfs"
+    </code>
+    Two things to note:
+    It's very important that the functions are called in the order they were given (e.g. Day 1 first, Day 7 last), as any deviation could throw things far out of whack
+    Day 2 and Day 5 weren't designed to be part of this overall decoder. The answers you got on those days should be used as inputs for Days 3 & 6 respectively
+    </p>
 <script>
     //Day1
 //parameter takes in a string of numbers and letters, is it always valid or ever empty?
@@ -159,7 +181,7 @@ console.log(cypher)
 function replaceWithSpace(str){
     //using cypher variable, loop thru string given, if char matches any of the cypher characters, replace with a space
     //return new string
-    return str.split('').map(el => cypher.map(el => el.toUpperCase()).includes(el) ? ' ' : el).join('')
+    return str.split('').map(el => cypher.includes(el) ? ' ' : el).join('')
 }
 //returns decrypted string
 console.log(replaceWithSpace('AyouEcouldSthinkPthisAisChardCtoSreadPbeforeAreplacingEtheSkeyEcharacters')) // ' you could think this is hard to read before replacing the key characters'
@@ -180,7 +202,6 @@ function checkPunSubmissions(str){
     //first, split str into array by commas
     let puns = str.split(',')
     //then filter allllllll these out
-    console.log(puns.length)
     let valid = puns.filter(pun => {
         //no empty spaces at start or end (if trim equal to original => all good)
         //cannot contain 'dog, bark, bone' in any capitalization (take input to lowercase and compare includes)
@@ -190,7 +211,7 @@ function checkPunSubmissions(str){
         //cannot contain a capital 'S'
         let caps = 0
         let lower = 0
-        for(i=0;i<pun.length-1;i++){
+        for(i=0;i<pun.length;i++){
             if(pun.charCodeAt(i) > 64 && pun.charCodeAt(i) < 91){
                 caps++
             }else if(pun.charCodeAt(i) > 96 && pun.charCodeAt(i) < 123){
@@ -215,7 +236,8 @@ function checkPunSubmissions(str){
     return valid
 }
 //returns array of submissions that made the cut from all the criteria
-console.log(checkPunSubmissions("The Pawshank Redemption,Caturday Night Live,Only Meworders in the Building,I Love Mewcy, Mewsummer Meowders,The Golden Purrs, Purrlandia ,Meowpardy, Meowstery Science Theater: Purrthousand, Amewican Idol,Dog City,Doctor Mew , The Meowing Fed,Mew Peter,The Vicar of Dogley, Kittens,Meownton Abbey,Pets and the Kitty,Dogis and Bonehead,Pawlty Meowers ,The Meowpet Show,Barkos,The Catbert Purrport,The Pawffice,The Dogford Files, Battlestar Catlactica,Catlumbo,SpongeDog Squarepants,NYPD Mew ,Fluffy the Meowpire Purrer,The Inbemewners,Meowder She Wrote,Paw & Order,30 Dog, Pawvatar: The Last Meowbender,The Pawnight Show,Arrested Dogvelopment,Furiends,Mewie,Curb Your Dogthusiasm,Teenage Mewtant Ninja Turtles,Phineas and Purrb,Paw Trek, Paw Trek: The Next Mewination, Twin Mewks, *C*A*T*S*,DogTales, Game of Bones, House of the Meowgon,The Purrlight Zone,Breaking Bone,The Meowre,The Dogpranos,The Rings of Meower, The KIT Crowd,Strangepaw Things ,Catman: The Animeowted Series,Meowter Call Saul,Mewgerton ,Obark,Mewphoria,La Casa de Pawpel,Rick & Meowty,Amewican Purror Story, Mewcifer,PawndaVision,Dogxter,The Meowndalorian, Dog Lasso,Bark,Meowdern Pawmily , Meowtlander,Bone Mirror,Barks and Recreation,How to Get Away with Meowder,Boneland ,Meowther Ted,Mewtopia,Mewey,The Mewkie Meowse Doghouse,Mewster Rogers' Neighborhood"))
+const day5 = checkPunSubmissions("The Pawshank Redemption,Caturday Night Live,Only Meworders in the Building,I Love Mewcy, Mewsummer Meowders,The Golden Purrs, Purrlandia ,Meowpardy, Meowstery Science Theater: Purrthousand, Amewican Idol,Dog City,Doctor Mew , The Meowing Fed,Mew Peter,The Vicar of Dogley, Kittens,Meownton Abbey,Pets and the Kitty,Dogis and Bonehead,Pawlty Meowers ,The Meowpet Show,Barkos,The Catbert Purrport,The Pawffice,The Dogford Files, Battlestar Catlactica,Catlumbo,SpongeDog Squarepants,NYPD Mew ,Fluffy the Meowpire Purrer,The Inbemewners,Meowder She Wrote,Paw & Order,30 Dog, Pawvatar: The Last Meowbender,The Pawnight Show,Arrested Dogvelopment,Furiends,Mewie,Curb Your Dogthusiasm,Teenage Mewtant Ninja Turtles,Phineas and Purrb,Paw Trek, Paw Trek: The Next Mewination, Twin Mewks, *C*A*T*S*,DogTales, Game of Bones, House of the Meowgon,The Purrlight Zone,Breaking Bone,The Meowre,The Dogpranos,The Rings of Meower, The KIT Crowd,Strangepaw Things ,Catman: The Animeowted Series,Meowter Call Saul,Mewgerton ,Obark,Mewphoria,La Casa de Pawpel,Rick & Meowty,Amewican Purror Story, Mewcifer,PawndaVision,Dogxter,The Meowndalorian, Dog Lasso,Bark,Meowdern Pawmily , Meowtlander,Bone Mirror,Barks and Recreation,How to Get Away with Meowder,Boneland ,Meowther Ted,Mewtopia,Mewey,The Mewkie Meowse Doghouse,Mewster Rogers' Neighborhood")
+console.log(day5)
 
     //Day 6
 //parameters take in a string and a number, will the string always be valid(aka not empty)? is the number always an integer and positive?
@@ -232,6 +254,37 @@ console.log(removeDecoyChar("Thies its H alltowe!en!? Th#is Tis GHalolowmeen$!",
 console.log(removeDecoyChar("The LBachyelor^ is ma tehrrib le tpelev!isioOn sh8ow.",5),
 "The Bachelor is a terrible television show.")
 
+    //Day 7
+//paremeter takes in a string with numbers letters and symbols
+function swapLetters(str){
+    //A = z
+    //p = K
+    //declare all uppercase letters in a variable, and all lowercase letters backwards order in a variable
+    //split and map str into new letters
+    //return joined array
+    let upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    let lower = 'zyxwvutsrqponmlkjihgfedcba'
+    return str.split('').map(letter => upper.includes(letter) ? lower[upper.indexOf(letter)] : lower.includes(letter) ? upper[lower.indexOf(letter)] : letter).join('')
+}
+//returns a decrypted string after changing the letters out
+console.log(swapLetters('vCZNKOV: 0 MFNYVI LI KFMXGFZGRLM XSZMTVH'),'Example: 0 number or punctuation changes')
+
+//bringing it all together...
+function bringItIn(str){
+    let day1 = confusedNumsAndAlpha(str)
+    console.log(day1==='e!!1gv)tSllt8cvbdeDHEdVw!00t1#Aa.2MDuLWYpP^VVjDch1SOiv#yl4gmQfs')
+    //day2 made cypher to use in day3
+    let day3 = replaceWithSpace(day1)
+    console.log(day3===' !!1gv)t llt8 vbd DHEdVw!00t1#A .2MDuLWY P^VVjD h1 Oiv#yl4gmQfs')
+    let day4 = flipAString(day3)
+    console.log(day4==='sfQmg4ly#viO 1h DjVV^P YWLuDM2. A#1t00!wVdEHD dbv 8tll t)vg1!! ')
+    //day5 input for day6
+    let day6 = removeDecoyChar(day4, day5.length)
+    console.log(day6==='sfmglyvi 1 DVVP WLDM. #100wVEH dv tl tvg!!')
+    return swapLetters(day6)
+}
+const encryptedMsg = "e!!Igv)t5lltBcvbdeDH3dVw!OOtI#Aa.ZMDu7WYpP^VVjDc4I50iv#ylhgmQfs"
+console.log(bringItIn(encryptedMsg))
 </script>
 </body>
 </html>
