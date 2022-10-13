@@ -36,3 +36,31 @@ function fizzBuzz(num){
 
 console.log(fizzBuzz(10), '[1, 2, "Fizz", 4 ,"Buzz" , "Fizz", 7 ,8,"Fizz", "Buzz"]')
 console.log(fizzBuzz(16), '[1, 2, "Fizz", 4 ,"Buzz" , "Fizz", 7 ,8,"Fizz", "Buzz",11,"Fizz",13,14,"Fizz Buzz",16]')
+
+//Day 2 (posted Oct 12, due Oct 13)
+//Write a function that when given a URL as a string, parses out just the domain name and returns it as a string. (suggested replace and split methods)
+//For example:
+// domainName("http://github.com/carbonfive/raygun") == "github" 
+// domainName("http://www.zombie-bites.com") == "zombie-bites"
+// domainName("https://www.cnet.com") == "cnet"
+
+//parameter takes in a URL as a string, not patterned argument
+function domainName(str){
+    //every url will have http or https and ://
+    //replace these with empty string
+    //if there's a www, replace with epty string
+    //split at ., return first index
+    // let noSlash = str.replace('://', '')
+    // let nohttp
+    // noSlash.includes('https') ? nohttp = noSlash.replace('https', '') : nohttp = noSlash.replace('http', '')
+    // let noWww = nohttp.replace('www.','')
+    // return noWww.split('.')[0]
+    let nohttp
+    str.includes('https') ? nohttp = str.replace('https://','') : nohttp = str.replace('http://', '')
+    let noFront = nohttp.replace('www.', '')
+    return noFront.split('.')[0]
+}
+//return domain name as a string, keep casing as given
+console.log(domainName("http://github.com/carbonfive/raygun"), "should equal github" )
+console.log(domainName("http://www.zombie-bites.com"),"should equal zombie-bites")
+console.log(domainName("https://www.cnet.com"),"should equal cnet")
