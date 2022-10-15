@@ -32,9 +32,26 @@
         checkEquality(arr1, arr4) => false
         // etc.</pre>
         Good luck! Check back tomorrow for the next challenge of the week!</p>
+<h2>Day 2</h2>
+    <p></p>
 <script>
     //Day 1
-//
+//create a function that compares arrays of arrays, if every value is the same, return true, otherwise return false
+//parameters take in 2 arrays with a certain number of subarrays. the number of subarrays will always be equal. will they ever empty?
+function checkEquality(arr1, arr2){
+    //loop thru arr1 and compare to same index as arr2
+    //if not same, break loop return false
+    //otherwise return true
+    return arr1.every((subArr, i) => subArr.every((el, j) => arr2[i][j] === el))
+}
+//returns boolean true false  whether all input arrays and subarrays match or not
+const arr1 = [['a','b','c'],['d','e','f'],['g','h','i']]
+const arr2 = [['a','b','c'],['d','e','f'],['g','h','i']]
+const arr3 = [['a','B','c'],['d','E','f'],['g','H','i']]
+const arr4 = [['a','b','c'],['g','h','i'],['d','e','f']]
+console.log(checkEquality(arr1, arr2), 'true')
+console.log(checkEquality(arr1, arr3), 'false')
+console.log(checkEquality(arr1, arr4), 'false')
 </script>
 </body>
 </html>
