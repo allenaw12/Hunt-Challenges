@@ -94,14 +94,24 @@ function moveOneLeft(arr, val){
         return arr
     }else{
         let move = arr.splice(i, 1)
-        console.log(move)
         arr.splice(i-1, 0, move[0])
         return arr
     }    
 }
 //returns original array with val moved one index to the left, or not changed in index
 function moveOneRight(arr, val){
-
+    //get index of val in arr
+    //if it's length of arr -1, return arr
+    //otherwise, splice arr at index of val and delete val, then splice it back in at index +1
+    //return array
+    let i = arr.indexOf(val)
+    if(i >= arr.length-1){
+        return arr
+    }else{
+        let move = arr.splice(i, 1)
+        arr.splice(i+1, 0, move[0])
+        return arr
+    }
 }
 //returns original array with val moved one index to the right, or not changed in index
 let myArray = ['abc', 'xyz', 1, 2, 'Hey!']
