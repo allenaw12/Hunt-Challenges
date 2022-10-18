@@ -78,6 +78,38 @@ const arr4 = [['a','b','c'],['g','h','i'],['d','e','f']]
 console.log(checkEquality(arr1, arr2), 'true')
 console.log(checkEquality(arr1, arr3), 'false')
 console.log(checkEquality(arr1, arr4), 'false')
+
+    //Day 2
+//2 functions, one to move a given value one index to the left, and another to move a given value one index to the right
+//if that value can't move anymore to left or right respectively it shouldn't move
+//input array should be mutated
+//parameters of functions moveOneLeft and moveOneRight are: a value, could be a string or number of varying lengths, will it ever be empty or nonexistant? it will always only occur once in given array. parameter 2 is an array of varying values, can it ever be empty?
+function moveOneLeft(arr, val){
+    //find index of given value
+    //if it's 0, return arr as is
+    //otherwise, splice at index of val, delete 1, then splice value back in at index -1 than original
+    //return array
+    let i = arr.indexOf(val)
+    if(i <= 0){
+        return arr
+    }else{
+        let move = arr.splice(i, 1)
+        console.log(move)
+        arr.splice(i-1, 0, move[0])
+        return arr
+    }    
+}
+//returns original array with val moved one index to the left, or not changed in index
+function moveOneRight(arr, val){
+
+}
+//returns original array with val moved one index to the right, or not changed in index
+let myArray = ['abc', 'xyz', 1, 2, 'Hey!']
+console.log(moveOneLeft(myArray, 'xyz'), "['xyz', 'abc', 1, 2, 'Hey!']")
+console.log(moveOneLeft(myArray, 'xyz'), "['xyz', 'abc', 1, 2, 'Hey!']")
+console.log(moveOneRight(myArray, 2),"['xyz', 'abc', 1, 'Hey!', 2]")
+console.log(moveOneRight(myArray, 2),"['xyz', 'abc', 1, 'Hey!', 2]")
+
 </script>
 </body>
 </html>
