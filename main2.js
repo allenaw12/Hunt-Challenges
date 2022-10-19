@@ -23,3 +23,21 @@ console.log(sumMix(['3', 6, 6, 0, '5', 8, 5, '6', 2,'0']), 41)
 // getAverage([2,2,2,2]),2)
 // getAverage([1,2,3,4,5,]),3);
 // getAverage([1,1,1,1,1,1,1,2]),1)
+
+//parameters takes in an array of numbers, it will never empty. 
+function getAverage(arr){
+    //get the average of numbers in given array
+    //to get an average, we will sum all the numbers, then divide by length of array
+    //return the average, rounded down to nearest integer (Math.floor())
+    // let sum = 0
+    // for(i=0; i<arr.length; i++){
+    //     sum += arr[i]
+    // }
+    // return Math.floor(sum/arr.length)
+    let sum = arr.reduce((total, curr) => total+curr, 0)
+    return Math.floor(sum/arr.length)
+}
+//return a number that is average of all the numbers in the input array
+console.log(getAverage([2,2,2,2]),2)
+console.log(getAverage([1,2,3,4,5,]),3)
+console.log(getAverage([1,1,1,1,1,1,1,2]),1)
