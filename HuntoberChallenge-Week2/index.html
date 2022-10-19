@@ -133,7 +133,33 @@ console.log(moveOneRight(myArray, 2),"['xyz', 'abc', 1, 'Hey!', 2]")
 console.log(moveOneRight(myArray, 2),"['xyz', 'abc', 1, 'Hey!', 2]")
 
     //Day 3
-//
+//a function takes in an array of strings. can it ever be empty? can there be other value types within it besides strings?
+//need to do 3 things to given array before returning it: all words with a in them are moved to front of array(keep order they were originally in in array), all words with over 3 characters are moved to end of array (keep order they were originally in in array), preserve relative order of entries within given category
+//parameter takes in an array of string
+function moveStringsAround(arr){
+    //want to make a copy to mutate
+    //declare 3 variables, to hold a's, 3+, and rest
+    //loop thru and if string includes 'a', push to a
+    //if string length is over 3, push to 3+
+    //otherwise push to rest
+    //return concat of 3 arrays, using concat
+    let allA = [],
+    threePlus = [],
+    others = []
+    arr.forEach(el => {
+        if(el.includes('a')){
+            allA.push(el)
+        }else if(el.length > 3){
+            threePlus.push(el)
+        }else{
+            others.push(el)
+        }
+    })
+    return allA.concat(others, threePlus)
+}
+//return array with rearranged values, can i mutate original array? or should I make a copy?
+let myArr = ['hi', 'hello', 'howdy', 'hola', 'hej', 'hallo', 'heyyy']
+console.log(moveStringsAround(myArr), "'hola', 'hallo', 'hi', 'hej', 'hello', 'howdy', 'heyyy'")
 
 </script>
 </body>
