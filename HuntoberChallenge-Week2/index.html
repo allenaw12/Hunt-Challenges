@@ -192,6 +192,48 @@ function moveStringsAround(arr){
 let myArr = ['hi', 'hello', 'howdy', 'hola', 'hej', 'hallo', 'heyyy']
 console.log(moveStringsAround(myArr), "'hola', 'hallo', 'hi', 'hej', 'hello', 'howdy', 'heyyy'")
 
+    //Day 4
+//given an array of arrays of length x, and if placed in a grid will be square, write 2 functions that take in a given value that will only appear once within given array, which will move given value up one roow or down one row in the array, keeping same horizontal position, will swap with whatever value is there
+//if it's in the first or last position it doesn't move
+//mutate given array! we wilin!
+//both functions take in an array of arrays and a value string, can either ever be empty? can the array have incorrect value/lengths?
+function moveUp(arr, val){
+    //go thru each subarray and check if val is in it
+        //once found, check if it's in index 0 of outer array, if so, return array
+        //otherwise, splice out the element at subarray index same as val index(and put in val), in subarray index-1 from val subarray index
+        //then take that element and splice in where val used to be
+    //return array
+    for(i=0;i<arr.length;i++){
+        if(arr[i].includes(val) && i === 0){
+            break
+        }else if(arr[i].includes(val)){
+            let old = arr[i-1].splice(arr[i].indexOf(val), 1, val)
+            arr[i].splice(arr[i].indexOf(val), 1, old[0])
+            break
+        }
+    }
+    return arr
+}
+function moveDown(arr, val){
+    for(i=0;i<arr.length;i++){
+        if(arr[i].includes(val) && i === arr.length-1){
+            break
+        }else if(arr[i].includes(val)){
+            let old = arr[i+1].splice(arr[i].indexOf(val), 1, val)
+            arr[i].splice(arr[i].indexOf(val), 1, old[0])
+            break
+        }
+    }
+    return arr
+}
+//both functions return mutated input array with the given value moved or in the same place
+let myGrid = [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h', 'i']]
+console.log(moveUp(myGrid, 'h'), "[['a', 'b', 'c'], ['d', 'h', 'f'], ['g', 'e', 'i']]")
+console.log(moveUp(myGrid, 'h'), "[['a', 'h', 'c'], ['d', 'b', 'f'], ['g', 'e', 'i']]")
+console.log(moveUp(myGrid, 'h'), "[['a', 'h', 'c'], ['d', 'b', 'f'], ['g', 'e', 'i']]")
+console.log(moveDown(myGrid, 'f'), "[['a', 'h', 'c'], ['d', 'b', 'i'], ['g', 'e', 'f']]")
+console.log(moveDown(myGrid, 'f'), "[['a', 'h', 'c'], ['d', 'b', 'i'], ['g', 'e', 'f']]")
+
 </script>
 </body>
 </html>
