@@ -50,3 +50,17 @@ console.log(getAverage([1,1,1,1,1,1,1,2]),1)
 // repeats([16, 0, 11, 4, 8, 16, 0, 11]),12)
 // repeats([5, 17, 18, 11, 13, 18, 11, 13]),22)
 // repeats([5, 10, 19, 13, 10, 13]),24)
+
+//parameters take in an array of numbers, there will be 2 numbers that are only listed once, the rest are listed twice
+function repeats(arr){
+    //get single numbers out of array
+    //add those single numbers together
+    let singles = arr.filter(el => arr.indexOf(el) === arr.lastIndexOf(el))
+    return singles.reduce((a,b) => a+b, 0)
+}
+//return sum of the single listed numbers
+console.log(repeats([4,5,7,5,4,8]), "15")
+console.log(repeats([9, 10, 19, 13, 19, 13]),"19")
+console.log(repeats([16, 0, 11, 4, 8, 16, 0, 11]),"12")
+console.log(repeats([5, 17, 18, 11, 13, 18, 11, 13]),"22")
+console.log(repeats([5, 10, 19, 13, 10, 13]),"24")
