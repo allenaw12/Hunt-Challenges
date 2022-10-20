@@ -250,6 +250,34 @@ console.log(moveUp(myGrid, 'h'), "[['a', 'h', 'c'], ['d', 'b', 'f'], ['g', 'e', 
 console.log(moveDown(myGrid, 'f'), "[['a', 'h', 'c'], ['d', 'b', 'i'], ['g', 'e', 'f']]")
 console.log(moveDown(myGrid, 'f'), "[['a', 'h', 'c'], ['d', 'b', 'i'], ['g', 'e', 'f']]")
 
+    //Day 5
+//given an array of x arrays of x length, shuffle the values in place, DIY style!
+//parameter takes in an array of arrays
+function shuffle(arr){
+    let length = arr.length
+    arr = arr.flat().sort(() => Math.random() - .5)
+    console.log(arr)
+    for(i=0;i<arr.length;i++){
+        // let cut = arr.slice(-length)
+        let cut = arr.slice(i,length+i)
+        console.log(i, cut)
+        //arr.unshift(cut)
+        //arr.splice(-length, length)
+        arr.splice(i, length,cut)
+    }
+    return arr
+}
+
+//found lovliness
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+//returns mutated array of arrays with shuffled values from the original input
+console.log(shuffle(myGrid))
+
 </script>
 </body>
 </html>
