@@ -71,3 +71,15 @@ console.log(repeats([5, 10, 19, 13, 10, 13]),"24")
 // ([1, 2, 3, 4, 5, 6, 7, 8, 9], 3) => [4, 6, 8]
 // ([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26], 2) => [-8, 26]
 // ([6, -25, 3, 7, 5, 5, 7, -3, 23], 1) => [6]
+
+//parameters taking an array of numbers and an integer, array will never be empty and will always have the given amount of even numbers within it.
+function getLastEvens(arr, num){
+    //even numbers out of the array, not mutating it
+    //take last num amount of numbers in new evens only array and return them
+    let evenNums = arr.filter(el => el%2 === 0)
+    return evenNums.slice(-num)
+}
+//return array of num length of even numbers from input array, in the order they originally appeared
+console.log(getLastEvens([1, 2, 3, 4, 5, 6, 7, 8, 9], 3),"[4, 6, 8]")
+console.log(getLastEvens([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26], 2),"[-8, 26]")
+console.log(getLastEvens([6, -25, 3, 7, 5, 5, 7, -3, 23], 1),"[6]")
