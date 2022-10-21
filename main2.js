@@ -64,3 +64,10 @@ console.log(repeats([9, 10, 19, 13, 19, 13]),"19")
 console.log(repeats([16, 0, 11, 4, 8, 16, 0, 11]),"12")
 console.log(repeats([5, 17, 18, 11, 13, 18, 11, 13]),"22")
 console.log(repeats([5, 10, 19, 13, 10, 13]),"24")
+
+    //Day six (posted oct 21, due oct 21, friday!)
+//Given an array of digital numbers, return a new array of length number containing the last even numbers from the original array (in the same order). The original array will be not empty and will contain at least "number" even numbers.
+// For example:
+// ([1, 2, 3, 4, 5, 6, 7, 8, 9], 3) => [4, 6, 8]
+// ([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26], 2) => [-8, 26]
+// ([6, -25, 3, 7, 5, 5, 7, -3, 23], 1) => [6]
