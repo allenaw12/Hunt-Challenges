@@ -21,3 +21,6 @@ function uniqueArray(arr){
 console.log(uniqueArray([[1,2],[4],[5,6]]),"4")
 console.log(uniqueArray([[1,2],[3,4],[5,6]]),"8")
 console.log(uniqueArray([[1,2,3],[3,4,6,6,7],[8,9,10,12,5,6]]),"72")
+
+    //Day 8 (posted Oct 26, due Oct 27)
+//
