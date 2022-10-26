@@ -35,9 +35,13 @@ console.log(uniqueArray([[1,2,3],[3,4,6,6,7],[8,9,10,12,5,6]]),"72")
 
 //parameters take in an array of integers of size at least 3 long. will there ever be negative numbers? (yes) ok, how about decimal numbers? (no) or any other value types? (nope) and will also take in an integer, will the integer ever be invalid(bigger than given array)? (no)
 function nthSmallest(arr, n){
-
+    //find nth smallest number in given array
+    //sort arr from smallest to largest, return the nth value === (index+1), return sorted array value-1
+    //arr.sort sorts in place so....make a copy
+    let sorted = arr.slice().sort((a,b) => a-b)
+    return sorted[n-1]
 }
-//return the value of the nth element in the array
+//return the value of the nth element in the array, can i mutate original array, or should i make a copy and mutate that? (make copy)
 //examples
 console.log(nthSmallest([3,1,2],2), "2")
 console.log(nthSmallest([15,20,7,10,4,3],3), "7")
