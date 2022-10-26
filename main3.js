@@ -32,3 +32,14 @@ console.log(uniqueArray([[1,2,3],[3,4,6,6,7],[8,9,10,12,5,6]]),"72")
 // nthSmallest({15,20,7,10,4,3} ,3) ==> return (7) 
 // nthSmallest({15,20,7,10,4,3} ,3) ==> return (7) 
 // nthSmallest({177,225,243,-169,-12,-5,2,92} ,5) ==> return (92)
+
+//parameters take in an array of integers of size at least 3 long. will there ever be negative numbers? (yes) ok, how about decimal numbers? (no) or any other value types? (nope) and will also take in an integer, will the integer ever be invalid(bigger than given array)? (no)
+function nthSmallest(arr, n){
+
+}
+//return the value of the nth element in the array
+//examples
+console.log(nthSmallest([3,1,2],2), "2")
+console.log(nthSmallest([15,20,7,10,4,3],3), "7")
+console.log(nthSmallest([15,20,7,10,4,3],3), "7")
+console.log(nthSmallest([177,225,243,-169,-12,-5,2,92],5), "92")
