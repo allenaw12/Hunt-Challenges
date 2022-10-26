@@ -7,4 +7,17 @@
 // solve([[1,2],[3,4],[5,6]]),8)
 // solve([[1,2,3],[3,4,6,6,7],[8,9,10,12,5,6]]),72)
 
-//
+//parameters take in an array of arrays with numbers in them. can they have values other than numbers?(does it matter?) is the array of arrays always a certain length or can it vary? Can the inner arrays vary in length? (yes)
+function uniqueArray(arr){
+    //OG THOUGHT BEFORE STANDUP: loop thru each subarray to find any duplicates, then loop thur unique arrays and push those to an empty array variable, then return the length of that(if there was unknown number of subarrays I don't know how to handle that...)
+    //NOTE: from standup, quickest way to find number of unique arrays is to multiply lengths of subarrays with only unique values in them
+    //So, make a Set(pulls all unque elements from an array) from given subArrays, so you'd have arr.length number of sets of unique values
+    //then since Set is an object type value, length doesn't work, but it can take size and return how many values are inside it
+    //using size, mulitiply the sizes of all the unique subarrays from given array of arrays and return that product
+    return arr.map(sA=> new Set(sA)).reduce((a, c) => a * c.size, 1)
+}
+//return a number, the count of unique arrays that can be made from given subarrays
+//examples
+console.log(uniqueArray([[1,2],[4],[5,6]]),"4")
+console.log(uniqueArray([[1,2],[3,4],[5,6]]),"8")
+console.log(uniqueArray([[1,2,3],[3,4,6,6,7],[8,9,10,12,5,6]]),"72")
