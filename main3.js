@@ -48,5 +48,16 @@ console.log(nthSmallest([15,20,7,10,4,3],3), "7")
 console.log(nthSmallest([15,20,7,10,4,3],3), "7")
 console.log(nthSmallest([177,225,243,-169,-12,-5,2,92],5), "92")
 
-    //Day 9
+    //Day 9 (posted Oct 26, due Oct 27)
+//The goal of this exercise is to convert a string to a new string where each character in the new string is "(" if that character appears only once in the original string, or ")" if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate.
+// Examples
+// "din"      =>  "((("
+// "recede"   =>  "()()()"
+// "Success"  =>  ")())())"
+// "(( @"     =>  "))(("
+
+//
+function replaceWithParens(str){
+
+}
 //
