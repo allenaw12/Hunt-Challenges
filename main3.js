@@ -56,8 +56,16 @@ console.log(nthSmallest([177,225,243,-169,-12,-5,2,92],5), "92")
 // "Success"  =>  ")())())"
 // "(( @"     =>  "))(("
 
-//
+//parameters take in a string, can have letters integers or special characters. can it ever be empty?
 function replaceWithParens(str){
-
+    //create new string from current string(map) -map works on array, so change to array
+    //check if current value of string is repeated anywhere, make uniform capitalization(to lowercase)
+    //if value unique, replace with (, if repeated, replace with )
+    //return new string
+    let checked = str.toLowerCase().split('').map(el => str.indexOf(el) === str.lastIndexOf(el) ? "(" : ")")
+    return checked.join('')
 }
-//
+//returns a string of parens, characters replaced by left paren if unique, or a right paren if repeated
+console.log(replaceWithParens("din"), "(((")
+console.log(replaceWithParens("Success"), ")())())")
+console.log(replaceWithParens("recede"), "()()()")
