@@ -35,4 +35,18 @@ console.log(swapUpperLower("Example Input"), "iNPUT eXAMPLE")
 // All inputs will be valid.
 // last('man i need a taxi up to ubud'), ['a', 'need', 'ubud', 'i', 'taxi', 'man', 'to', 'up']
 // last('what time are we climbing up the volcano'), ['time', 'are', 'we', 'the', 'climbing', 'volcano', 'up', 'what']
-// last('take me to semynak'), ['take', 'me', 'semynak', 'to'] 
+// last('take me to semynak'), ['take', 'me', 'semynak', 'to']
+
+//function is going to take in a string of words, will there be other characters(symbols or numbers)? no
+function last(str){
+    //split the string into words
+    //sort the words by last letter, keeping original order if words have the same letter
+    //return sorted array
+    let words = str.split(' ')
+    let sorted = words.sort((a,b) => a[a.length-1].localeCompare(b[b.length-1]))
+    return sorted
+}
+//return array of the words from the given string in reverse alphabetical order by final letter, if same letter keep in original order from sentence
+console.log(last('man i need a taxi up to ubud'), "['a', 'need', 'ubud', 'i', 'taxi', 'man', 'to', 'up']")
+console.log(last('what time are we climbing up the volcano'), "['time', 'are', 'we', 'the', 'climbing', 'volcano', 'up', 'what']")
+console.log(last('take me to semynak'), "['take', 'me', 'semynak', 'to']")
