@@ -29,7 +29,7 @@ console.log(swapUpperLower("  Dtcw Jvfe   Kxjo     Tsjl   Dur   Vxm Aca     C"),
 console.log(swapUpperLower("  Dtcw Jvfe   Kxjo     Tsjl   Dur   Vxm Aca     C")==="c     aCA vXM   dUR   tSJL     kXJO   jVFE dTCW  ")
 console.log(swapUpperLower("Example Input"), "iNPUT eXAMPLE")
 
-    //Day 11 (posted Nov 1, due Nov 2)
+    //Day 11 (posted Nov 1, due Nov 2(nov 3rd due to emergency))
 //Given a string of words (x), you need to return an array of the words, sorted alphabetically by the final character in each.
 // If two words have the same last letter, they returned array should show them in the order they appeared in the given string.
 // All inputs will be valid.
