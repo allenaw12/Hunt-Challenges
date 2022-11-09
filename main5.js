@@ -23,5 +23,12 @@ console.log(findDeletedNumber([1,2,3,4,5], [3,4,1,5]), "2")
 console.log(findDeletedNumber([1,2,3,4,5,6,7,8,9], [1,9,7,4,6,2,3,8]), "5")
 console.log(findDeletedNumber([1,2,3,4,5,6,7,8,9], [5,7,6,9,4,8,1,2,3]), "0")
 
-    //Day 13(posted Nov)
-//
+    //Day 13(posted Nov 9, due nov 9)
+//Implement a difference function, which subtracts one list from another and returns the result.
+// It should remove all values from list a, which are present in list b keeping their order.
+// arrayDiff([1,2],[1]) == [2]
+// If a value is present in b, all of its occurrences must be removed from the other:
+// arrayDiff([1,2,2,2,3],[2]) == [1,3]
+// arrayDiff([], [4,5]), [], "a was [], b was [4,5]"
+// arrayDiff([3,4], [3]), [4], "a was [3,4], b was [3]"
+// arrayDiff([1,8,2], []), [1,8,2], "a was [1,8,2], b was []"
