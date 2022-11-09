@@ -32,3 +32,23 @@ console.log(findDeletedNumber([1,2,3,4,5,6,7,8,9], [5,7,6,9,4,8,1,2,3]), "0")
 // arrayDiff([], [4,5]), [], "a was [], b was [4,5]"
 // arrayDiff([3,4], [3]), [4], "a was [3,4], b was [3]"
 // arrayDiff([1,8,2], []), [1,8,2], "a was [1,8,2], b was []"
+
+//parameters take in 2 arrays, one to check and subtract from, one containing the values to be subtracted/removed
+//can there ever be value types besides numbers/integers? decimals? no
+
+function arrayDiff(arr1, arr2){
+    //compare arrays and return values from arr1 that are not in arr2
+    //if either array is empty, return arr1 (cause if either is empty there's nothing to take out)
+    //otherwise, filter out elements that are not included in arr2
+    //return that result
+    if(arr1.length === 0 || arr2.length === 0)return arr1
+    else{
+        let result = arr1.filter(el => !arr2.includes(el))
+        return result
+    }
+}
+//return the difference between the two arrays, as an array(any values from arr1 that are not in arr2) and in original order from arr1
+console.log(arrayDiff([1,2,2,2,3],[2]), "[1,3]")
+console.log(arrayDiff([], [4,5]), "[]")
+console.log(arrayDiff([3,4], [3]), "[4]")
+console.log(arrayDiff([1,8,2], []), "[1,8,2]")
