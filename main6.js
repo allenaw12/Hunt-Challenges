@@ -7,3 +7,18 @@
 // Another example (just to make sure it is clear):
 // gimme([5, 10, 14]) => 1
 // 10 is the number that fits between 5 and 14 and the index of 10 in the input array is 1.
+
+//parameter is an array of 3 distinct numbers, (thus numbers never repeat? no). are the numbers always integers, not decimals? yes, are there ever negative numbers? no, are there ever values besides numbers? no
+
+function gimme(arr){
+    //find the index of the middle number when the array is sorted in order, can use findindex
+    //return arr.findIndex((el, i, array) => el === array.sort((a,b) => a-b, 0)[1])
+
+    //we could make this separate pieces and use index of instead
+    let mid = arr.slice().sort((a,b) => a-b, 0)[1]
+    return arr.indexOf(mid)
+}
+
+//returns a number representing the index of the number from the given array that is the middle value when the elements are sorted highest to lowest or vice versa
+console.log(gimme([2, 3, 1]), "0")
+console.log(gimme([5, 10, 14]), "1")
