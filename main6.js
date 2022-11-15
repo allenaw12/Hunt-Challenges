@@ -51,8 +51,14 @@ function sortArray(arr) {
     // })
     // return result
 
-    let odds = arr.filter(el => el % 2 !== 0).sort((a,b) => a-b,0)
-    return arr.map(val => val %2 === 0 ? val : odds.shift())
+    // let odds = arr.filter(el => el % 2 !== 0).sort((a,b) => a-b,0)
+    // return arr.map(val => val %2 === 0 ? val : odds.shift())
+
+    //leon more optimized version
+    //el % 2 return truthy if not even, so don't need not equal
+    //sort b-a makes descending order and allows pop to be used which is more time efficient than shift
+    const odds = arr.filter(el => el % 2).sort((a,b) => b-a)
+    return arr.map(val => val % 2 ? odds.pop() : val)
 }
 //return an array from input array where odd numbers are in ascending order and even numbers are in their original indices in given array
 
