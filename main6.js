@@ -31,3 +31,32 @@ console.log(gimme([5, 10, 14]), "1")
 // [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]  =>  [1, 8, 3, 6, 5, 4, 7, 2, 9, 0]
 // sortArray([5, 3, 2, 8, 1, 4]), [1, 3, 2, 8, 5, 4])
 // sortArray([5, 3, 1, 8, 0]), [1, 3, 5, 8, 0])
+
+//parameters take in an array of numbers, can be any length. will it ever be an empty array? no, will the numbers always be whole and positive? yes. can there ever be other value types? no, should i mutate the original array? no
+
+function sortArray(arr) {
+    //filter a new array and sort it with only odd numbers
+    //map for a new array, if number is even, just return number
+        //if number odd, have a declared index variable starting at 0, return that index from sorted odd numbers, add 1 to index
+    //return that new mapped array
+    // let odds = arr.filter(el => el % 2 !== 0).sort((a,b) => a-b, 0)
+    // let i = -1
+    // let result = arr.map(val => {
+    //     if(val % 2 === 0){
+    //         return val
+    //     }else{
+    //         i++
+    //         return odds[i]
+    //     }
+    // })
+    // return result
+
+    let odds = arr.filter(el => el % 2 !== 0).sort((a,b) => a-b,0)
+    return arr.map(val => val %2 === 0 ? val : odds.shift())
+}
+//return an array from input array where odd numbers are in ascending order and even numbers are in their original indices in given array
+
+console.log(sortArray([7,1]), "1,7")
+console.log(sortArray([5,8,6,3,4]), "3,8,6,5,4")
+console.log(sortArray([9,8,7,6,5,4,3,2,1,0]), "1,8,3,6,5,4,7,2,9,0")
+console.log(sortArray([5,3,1,8,0]), "1,3,5,8,0")
