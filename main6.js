@@ -22,3 +22,6 @@ function gimme(arr){
 //returns a number representing the index of the number from the given array that is the middle value when the elements are sorted highest to lowest or vice versa
 console.log(gimme([2, 3, 1]), "0")
 console.log(gimme([5, 10, 14]), "1")
+
+    //Day 15 (posted Nov , due Nov )
+//
