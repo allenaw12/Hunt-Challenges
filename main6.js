@@ -83,9 +83,9 @@ function toAverageLength(arr){
     //map into new array, for each string, check if length is equal to average length, if yes return as is, otherwise
         //add a charater to the string until it's length equals the average and return it
     //return resulting array
-    let lengthSum = 0
-    arr.forEach(val => lengthSum += val.length)
-    let lengthAvg = Math.round(lengthSum/arr.length)
+    // let lengthSum = 0
+    // arr.forEach(val => lengthSum += val.length)
+    // let lengthAvg = Math.round(lengthSum/arr.length)
     // let sameLength = arr.map(el => {
     //     let char = el[0]
     //     let added
@@ -106,8 +106,16 @@ function toAverageLength(arr){
     //         return added
     //     }
     // })
-    let sameLength = arr.map(el => el[0].repeat(lengthAvg))
-    return sameLength
+
+    // let lengthSum = 0
+    // arr.forEach(val => lengthSum += val.length)
+    // let lengthAvg = Math.round(lengthSum/arr.length)
+    // let sameLength = arr.map(el => el[0].repeat(lengthAvg))
+    // return sameLength
+
+    //leon's solution
+    const avgLength = Math.round(arr.join('').length/ arr.length)
+    return arr.map(str => str[0].repeat(avgLength))
 }
 
 //return an array of strings that are all length of the average length of input array strings
