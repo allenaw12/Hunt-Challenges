@@ -76,10 +76,38 @@ console.log(sortArray([5,3,1,8,0]), "1,3,5,8,0")
 // If the average length is not an integer, use Math.round().
 // The input array's length > 1
 
-//parameter takes in an array of strings, of length over 1. will the value always be strings? yes
+//parameter takes in an array of strings, of length over 1. will the value always be strings? yes do we want mutate original array or make a new array? make new
 
 function toAverageLength(arr){
-    //
+    //get average of lengths of strings, add together each element length and divide by arr length, using math.round to ensure it's a whole integer
+    //map into new array, for each string, check if length is equal to average length, if yes return as is, otherwise
+        //add a charater to the string until it's length equals the average and return it
+    //return resulting array
+    let lengthSum = 0
+    arr.forEach(val => lengthSum += val.length)
+    let lengthAvg = Math.round(lengthSum/arr.length)
+    // let sameLength = arr.map(el => {
+    //     let char = el[0]
+    //     let added
+    //     if(el.length === lengthAvg){
+    //         console.log('same')
+    //         return el
+    //     }else if(el.length < lengthAvg){
+    //         console.log('smaller', char)
+    //         for(i=el.length;i<=lengthAvg;i++){
+    //             added = el.concat(char)
+    //         }
+    //         return added
+    //     }else if(el.length > lengthAvg){
+    //         console.log("bigger")
+    //         for(i=el.length;i>=lengthAvg;i--){
+    //             added = el.slice(0,el.length-2)
+    //         }
+    //         return added
+    //     }
+    // })
+    let sameLength = arr.map(el => el[0].repeat(lengthAvg))
+    return sameLength
 }
 
 //return an array of strings that are all length of the average length of input array strings
