@@ -75,3 +75,14 @@ console.log(sortArray([5,3,1,8,0]), "1,3,5,8,0")
 // ['aa', 'bb', 'ddd', 'eee'] => ['aaa', 'bbb', 'ddd', 'eee'] // average length is 2.5 round up to 3
 // If the average length is not an integer, use Math.round().
 // The input array's length > 1
+
+//parameter takes in an array of strings, of length over 1. will the value always be strings? yes
+
+function toAverageLength(arr){
+    //
+}
+
+//return an array of strings that are all length of the average length of input array strings
+console.log(toAverageLength(['u', 'y']), "['u', 'y']")
+console.log(toAverageLength(['aa', 'bbb', 'cccc']), "['aaa', 'bbb', 'ccc']")
+console.log(toAverageLength(['aa', 'bb', 'ddd', 'eee']), "['aaa', 'bbb', 'ddd', 'eee']")
