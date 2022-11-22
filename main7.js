@@ -11,3 +11,6 @@ function removeDupeWords(str){
 }
 //returns a filtered string of words with no consecutive duplicate words
 console.log(removeDupeWords("alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta") === "alpha beta gamma delta alpha beta gamma delta")
+
+    //Day18(posted, due)
+//
