@@ -40,3 +40,23 @@ console.log()
 // Examples
 // "John Doe hs seven red pples under his bsket"          =>  0  ; missing: "a"
 // "Bb Smith sent us six neatly arranged range bicycles"  =>  3  ; missing: "o"
+
+//parameters take in a string. it will always be a string, all strings will contain all vowels except one. don't need to worry about capitals.
+function findMissingVowel(str){
+    //put vowels in string variable in indices listed
+    //go thru vowels and check if included in string, if not, return index of vowel, break loop
+    //return index found
+    let vowels = "aeiou"
+    let ind
+    for(i=0;i<5;i++){
+        if(!str.includes(vowels[i])){
+            return ind = i
+            break} 
+    }
+    return ind
+}
+//returning a number from 0-4 representing the index of the missing vowel
+console.log(findMissingVowel("John Doe hs seven red pples under his bsket"),"0")
+console.log(findMissingVowel("Bb Smith sent us six neatly arranged range bicycles"),"3")
+console.log(findMissingVowel("The dnosaur ate t's dnner"),"2")
+//console.log(findMissingVowel(),)
