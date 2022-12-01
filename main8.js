@@ -59,4 +59,6 @@ function findMissingVowel(str){
 console.log(findMissingVowel("John Doe hs seven red pples under his bsket"),"0")
 console.log(findMissingVowel("Bb Smith sent us six neatly arranged range bicycles"),"3")
 console.log(findMissingVowel("The dnosaur ate t's dnner"),"2")
-//console.log(findMissingVowel(),)
+
+    //day 20
+//
