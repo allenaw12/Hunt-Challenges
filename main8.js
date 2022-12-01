@@ -61,4 +61,13 @@ console.log(findMissingVowel("Bb Smith sent us six neatly arranged range bicycle
 console.log(findMissingVowel("The dnosaur ate t's dnner"),"2")
 
     //day 20
-//
+//Given a number as an input, print out every integer from 1 to that number. However, when the integer is divisible by 2, print out “Fizz”; when it’s divisible by 3, print out “Buzz”; when it’s divisible by both 2 and 3, print out “Fizz Buzz”.
+
+//parameters take in a number as input, number will always be whole and positive and a number
+function fizzBuzz(num){
+    //
+}
+//returns a list/array of numbers from 1 to given number and words when num value is divisible by 2 or 3 or both
+console.log(fizzBuzz(3),"1, Fizz, Buzz")
+console.log(fizzBuzz(6),"1, Fizz, Buzz, Fizz, 5, Fizz Buzz")
+console.log(fizzBuzz(12),"1, Fizz, Buzz, Fizz, 5, Fizz Buzz,7,Fizz, Buzz,Fizz,11,Fizz Buzz")
