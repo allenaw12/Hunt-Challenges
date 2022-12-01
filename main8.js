@@ -65,9 +65,42 @@ console.log(findMissingVowel("The dnosaur ate t's dnner"),"2")
 
 //parameters take in a number as input, number will always be whole and positive and a number
 function fizzBuzz(num){
-    //
+    //declaare an empty array to hold numbers
+    //use a for loop i=1, i<= num, i++
+    //if i%2 push to array Fizz, if i%3 push to array Buzz, if both i%2 and i%3 push to array Fizz Buzz, otherwise push i
+    //return array variable
+    let numsArr = []
+    // for(i=1; i<=num; i++){
+    //     if(i%2===0 && i%3===0){
+    //         numsArr.push('Fizz Buzz')
+    //     }else if(i%3===0){
+    //         numsArr.push('Buzz')
+    //     }else if(i%2===0){
+    //         numsArr.push('Fizz')
+    //     }else{
+    //         numsArr.push(i)
+    //     }
+    // }
+    let i=1
+    while(i<=num){
+        if(i%2===0 && i%3===0){
+            numsArr.push('Fizz Buzz')
+        }else if(i%3===0){
+            numsArr.push('Buzz')
+        }else if(i%2===0){
+            numsArr.push('Fizz')
+        }else{
+            numsArr.push(i)
+        }
+        i++
+    }
+    return numsArr
 }
 //returns a list/array of numbers from 1 to given number and words when num value is divisible by 2 or 3 or both
 console.log(fizzBuzz(3),"1, Fizz, Buzz")
 console.log(fizzBuzz(6),"1, Fizz, Buzz, Fizz, 5, Fizz Buzz")
-console.log(fizzBuzz(12),"1, Fizz, Buzz, Fizz, 5, Fizz Buzz,7,Fizz, Buzz,Fizz,11,Fizz Buzz")
+console.log(fizzBuzz(12),"1, Fizz, Buzz, Fizz, 5, Fizz Buzz, 7, Fizz, Buzz, Fizz, 11, Fizz Buzz")
+//check exact equal
+console.log(fizzBuzz(3).join(', ')==="1, Fizz, Buzz")
+console.log(fizzBuzz(6).join(', ')==="1, Fizz, Buzz, Fizz, 5, Fizz Buzz")
+console.log(fizzBuzz(12).join(', ')==="1, Fizz, Buzz, Fizz, 5, Fizz Buzz, 7, Fizz, Buzz, Fizz, 11, Fizz Buzz")
