@@ -60,14 +60,5 @@ console.log(findMissingVowel("John Doe hs seven red pples under his bsket"),"0")
 console.log(findMissingVowel("Bb Smith sent us six neatly arranged range bicycles"),"3")
 console.log(findMissingVowel("The dnosaur ate t's dnner"),"2")
 
-//testing 'object destructuring'
-const you = (name, age) =>{
-   return {name,
-            age}
-}
-const userAllena = you('allena', 'thirties')
-const userAdam = you('adam', 'thirties')
-console.log(userAllena, userAdam)
-
     //day 20
 //
