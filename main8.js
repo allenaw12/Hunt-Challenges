@@ -104,3 +104,6 @@ console.log(fizzBuzz(12),"1, Fizz, Buzz, Fizz, 5, Fizz Buzz, 7, Fizz, Buzz, Fizz
 console.log(fizzBuzz(3).join(', ')==="1, Fizz, Buzz")
 console.log(fizzBuzz(6).join(', ')==="1, Fizz, Buzz, Fizz, 5, Fizz Buzz")
 console.log(fizzBuzz(12).join(', ')==="1, Fizz, Buzz, Fizz, 5, Fizz Buzz, 7, Fizz, Buzz, Fizz, 11, Fizz Buzz")
+
+    //day 21
+//Given a string of characters as input, write a function that returns it with the characters reversed. No Reverse Method (well brute force it first, but then no reverse method)! 
