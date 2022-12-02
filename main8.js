@@ -106,4 +106,25 @@ console.log(fizzBuzz(6).join(', ')==="1, Fizz, Buzz, Fizz, 5, Fizz Buzz")
 console.log(fizzBuzz(12).join(', ')==="1, Fizz, Buzz, Fizz, 5, Fizz Buzz, 7, Fizz, Buzz, Fizz, 11, Fizz Buzz")
 
     //day 21
-//Given a string of characters as input, write a function that returns it with the characters reversed. No Reverse Method (well brute force it first, but then no reverse method)! 
+//Given a string of characters as input, write a function that returns it with the characters reversed. No Reverse Method (well brute force it first, but then no reverse method)!
+
+//parameters take in a string. always at least 1 char, no other value types. 
+function reverseChars(str){
+    //do not use reverse method!
+    // //create an empty catcher array
+    // //forEach loop on string split unshift the letter into the catcher array
+    // //return joined array
+    // let reversedArr = []
+    // str.split('').forEach(el=>reversedArr.unshift(el))
+    // return reversedArr.join('')
+    //can we use map with it's 3 parameters?
+    return str.split('').map((el, i, arr)=>arr[arr.length-1-i]).join('')
+}
+//return a string of input string in reverse order
+console.log(reverseChars('hello'),'olleh')
+console.log(reverseChars('my name is'),'si eman ym')
+console.log(reverseChars('Oh SHIT'),'TIHS hO')
+
+console.log(reverseChars('hello')==='olleh')
+console.log(reverseChars('my name is')==='si eman ym')
+console.log(reverseChars('Oh SHIT')==='TIHS hO')
