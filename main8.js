@@ -117,8 +117,14 @@ function reverseChars(str){
     // let reversedArr = []
     // str.split('').forEach(el=>reversedArr.unshift(el))
     // return reversedArr.join('')
-    //can we use map with it's 3 parameters?
-    return str.split('').map((el, i, arr)=>arr[arr.length-1-i]).join('')
+    // //can we use map with it's 3 parameters?
+    // return str.split('').map((el, i, arr)=>arr[arr.length-1-i]).join('')
+    //leon's slick solution
+    let reverseStr = ""
+    for(let char of str){
+        reverseStr=char+reverseStr
+    }
+    return reverseStr
 }
 //return a string of input string in reverse order
 console.log(reverseChars('hello'),'olleh')
