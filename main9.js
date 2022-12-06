@@ -48,7 +48,15 @@ console.log(countCharacters('hello'),"{'h': 1, 'e': 1, 'l': 2, 'o': 1}")
 //parameters take in 2 strings, jewels and stones, jewels will always have a length 1 or greater, stones will have a length of 50 or less, jewels' characters will be unique and both strings only consist of english letter. case sensitive, different case of same letter is  different value. can there be other value types? 
 function jewelsAndStones(jewels, stones){
     //first thought is filter, if stones includes jewels, filter it, then return length of that new arr
-    return stones.split('').filter(char=>jewels.includes(char)).length
+    //return stones.split('').filter(char=>jewels.includes(char)).length
+
+    //next i'm thinking split for each and increment a counter
+    // let jewelCount = 0
+    // stones.split('').forEach(char=>{
+    //     if(jewels.includes(char))jewelCount++})
+    // return jewelCount
+
+    
 }
 //returns an integer number of the count of stones that match jewels
 console.log(jewelsAndStones("z","ZZ"),'0')
