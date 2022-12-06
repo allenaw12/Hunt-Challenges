@@ -30,3 +30,6 @@ function countCharacters(str){
 console.log(countCharacters(''),"{}")
 console.log(countCharacters('aba'),"{'a': 2, 'b': 1}")
 console.log(countCharacters('hello'),"{'h': 1, 'e': 1, 'l': 2, 'o': 1}")
+
+    //day 23
+//
