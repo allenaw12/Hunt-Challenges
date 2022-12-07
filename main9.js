@@ -92,5 +92,13 @@ console.log(jewelsAndStones("bBd","AbrcADaBra"),'2')
 //      assert.equal(max("Hello World!"), "l");
 //     });
 //    });
-   
 //    No String or Array Methods (well brute force it first, but then no methods)!
+
+//parameters take in a string, can it ever be empty? can there be special characters or other value types given? is it case sensitive? yes
+function maxCharacter(str){
+    //
+}
+//returns the character that appears most in the given string as a string
+console.log(maxCharacter("Hello World!"),'l')
+console.log(maxCharacter("Allena Williamson"),'l')
+console.log(maxCharacter("Supercalifragilisticexpialidocious"),'?')
