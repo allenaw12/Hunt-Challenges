@@ -96,9 +96,18 @@ console.log(jewelsAndStones("bBd","AbrcADaBra"),'2')
 
 //parameters take in a string, can it ever be empty? can there be special characters or other value types given? is it case sensitive? yes
 function maxCharacter(str){
-    //
+    //brute force way! with methods
+    let counts = str.split('').reduce((acc, curr)=>{
+        if(acc[curr]) acc[curr]++
+        else acc[curr]=1
+        return acc
+    }, {})
+    let max = Math.max(...Object.values(counts))
+    let result = Object.entries(counts).filter(el => el.includes(max)).flat()
+    return result[0]
 }
 //returns the character that appears most in the given string as a string
 console.log(maxCharacter("Hello World!"),'l')
 console.log(maxCharacter("Allena Williamson"),'l')
-console.log(maxCharacter("Supercalifragilisticexpialidocious"),'?')
+console.log(maxCharacter("AHAHAHAHAHA!"),'A')
+console.log(maxCharacter("Supercalifragilisticexpialidocious"),'i')
