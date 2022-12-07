@@ -56,9 +56,20 @@ function jewelsAndStones(jewels, stones){
     //     if(jewels.includes(char))jewelCount++})
     // return jewelCount
 
-    
+    //adam suggested an object cache....similar to hashmap like leon suggested
+    //for loop for string, for of!
+    const countObj = {}
+    for(let jewel of jewels){
+        countObj[jewel]=1
+    }
+    for(let stone of stones){
+        if(countObj[stone]) countObj[stone]++
+    }
+    return Object.values(countObj).reduce((a,b)=>a+b,0) - jewels.length
 }
 //returns an integer number of the count of stones that match jewels
 console.log(jewelsAndStones("z","ZZ"),'0')
 console.log(jewelsAndStones("aA","aAAbbbb"),'3')
 console.log(jewelsAndStones("bBd","AbrcADaBra"),'2')
+
+    //day 24
