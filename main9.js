@@ -58,14 +58,27 @@ function jewelsAndStones(jewels, stones){
 
     //adam suggested an object cache....similar to hashmap like leon suggested
     //for loop for string, for of!
-    const countObj = {}
-    for(let jewel of jewels){
-        countObj[jewel]=1
+    // const countObj = {}
+    // for(let jewel of jewels){
+    //     countObj[jewel]=1
+    // }
+    // for(let stone of stones){
+    //     if(countObj[stone]) countObj[stone]++
+    // }
+    // return Object.values(countObj).reduce((a,b)=>a+b,0) - jewels.length
+
+    //leon's solution
+    const map = {}
+    let count = 0
+    for(const jewel of jewels){
+        map[jewel] = true
     }
-    for(let stone of stones){
-        if(countObj[stone]) countObj[stone]++
+    for(const stone of stones){
+        if( map[stone] ){
+            count++
+        }
     }
-    return Object.values(countObj).reduce((a,b)=>a+b,0) - jewels.length
+    return count
 }
 //returns an integer number of the count of stones that match jewels
 console.log(jewelsAndStones("z","ZZ"),'0')
@@ -73,3 +86,11 @@ console.log(jewelsAndStones("aA","aAAbbbb"),'3')
 console.log(jewelsAndStones("bBd","AbrcADaBra"),'2')
 
     //day 24
+//Given a string of characters, return the character that appears the most often.
+//describe("Max Character", () => {
+//     it("Should return max character", () => {
+//      assert.equal(max("Hello World!"), "l");
+//     });
+//    });
+   
+//    No String or Array Methods (well brute force it first, but then no methods)!
