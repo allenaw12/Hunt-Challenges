@@ -106,12 +106,22 @@ function maxCharacter(str){
     // let result = Object.entries(counts).filter(el => el.includes(max)).flat()
     // return result[0]
     
-    //non brute force(no methods!) have an empty object, add keys and increment values
+    // //non brute force(no methods!) have an empty object, add keys and increment values
+    // let letters = {}
+    // for(char of str){letters[char]? letters[char]++ : letters[char] = 1}
+    // let max = Math.max(...Object.values(letters))
+    // let i = Object.values(letters).indexOf(max)
+    // return Object.keys(letters)[i]
+
+    //try again, still use cache object, then use another for loop to check nums...
     let letters = {}
     for(char of str){letters[char]? letters[char]++ : letters[char] = 1}
-    let max = Math.max(...Object.values(letters))
-    let i = Object.values(letters).indexOf(max)
-    return Object.keys(letters)[i]
+    let maxVal
+    for(char in letters){
+        if(!maxVal) maxVal = char
+        else if(letters[maxVal] < letters[char]) maxVal = char
+    }
+    return maxVal
 }
 //returns the character that appears most in the given string as a string
 console.log(maxCharacter("Hello World!"),'l')
