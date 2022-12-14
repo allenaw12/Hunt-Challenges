@@ -29,12 +29,24 @@ function appearTwice(arr){
     //use for loop
     //use for in loop, go thru obj, if val is greater than 1, return true
     //otherwise return false
-    const numCounts = {}
-    for(num of arr){
-        numCounts[num] = numCounts[num] + 1 || 1
-    }
-    for(count in numCounts){
-        if(numCounts[count] > 1) return true
+    // const numCounts = {}
+    // for(num of arr){
+    //     numCounts[num] = numCounts[num] + 1 || 1
+    // }
+    // for(count in numCounts){
+    //     if(numCounts[count] > 1) return true
+    // }
+    // return false
+
+    //leon's single for loop
+    let numsMap = {}
+    for(let i = 0; i < arr.length; i++){
+        let num = arr[i]
+        if(numsMap[num]){
+        return true
+        }else{
+        numsMap[num] = true
+        }
     }
     return false
 }
@@ -52,3 +64,53 @@ console.log(appearTwice([1,1,1,3,3,4,3,2,4,2]),"true")
 // Example 2:
 // Input: nums = [2,2,1,1,1,2,2]
 // Output: 2
+
+//parameters taking in an array of numbers, no other value types, only whole integers, there will always be a majority element in array
+const findMajorityNum = (arr) => {
+    //hash map/object cache
+    //for loop and make count object
+    //have a result to hold largest value, and a result for largest value property
+    //return property
+    // let counts = {},
+    //     value = 0,
+    //     prop = true
+    
+    // for(el of arr){
+    //     counts[el] = counts[el] + 1 || 1
+    // }
+    // for(val in counts){
+    //     //console.log("val and counts val, value", val, counts[val], value)
+    //     if(counts[val] > value){
+    //         value = counts[val]
+    //         prop = val}
+    //     //console.log("after", value)
+    // }
+    // return prop
+
+    //leon solution
+    let elem = {},
+      count = 0,
+      majElem = arr[0]
+  
+    for(const num of arr){
+        elem[num] = elem[num] + 1 || 1
+        // if(elem[num] > arr.length / 2){
+        //     count = elem[num]
+        //     majElem = num
+        // }
+    }
+    
+    for(const n in elem){
+        if(elem[n] > count){
+        count = elem[n]
+        majElem = n
+        }
+    } 
+    
+    return majElem
+}
+//return the majority number found in given array, will always be there
+console.log(findMajorityNum([3,2,3]), "3")
+console.log(findMajorityNum([2,2,1,1,1,2,2]),"2")
+console.log(findMajorityNum([5,3,4,2,3,3,3,5,3]), "3")
+console.log(findMajorityNum([2,1,1,1,1,2,2]), "1")
