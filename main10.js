@@ -117,8 +117,7 @@ console.log(findMajorityNum([2,1,1,1,1,2,2]), "1")
 
     //Day 27
 //Given a magazine of words and a ransom note, determine if it’s possible to “cut out” and create the ransom note from the magazine words.
-// const magazine =
-// "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum";
+const magazine = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
 // describe("Ransom Note", () => {
 // it("Should return true", () => {
 //  assert.equal(ransomNote("sit ad est sint", magazine), true);
@@ -133,3 +132,37 @@ console.log(findMajorityNum([2,1,1,1,1,2,2]), "1")
 //  assert.equal(ransomNote("sit ad est sint in in in in", magazine), false);
 // });
 // });
+
+//parameter takes in a string to be cut and a string to be cut from, can it have odd characters? no, can it be empty? no, does case matter? it will always be lowercase.
+function ransomNote(str,magazine){
+    //want to check if each word in string is in magazine the same number of times
+    //for loop of str, create cache
+    //for loop of magazine, once equal to str break, otherwise return false
+    //return true
+    let strCache = {}
+    let words = str.split(' ')
+    for(word of words){
+        strCache[word] = strCache[word] + 1 || 1
+    }
+    let magCache = {}
+    let mag = magazine.split(' ')
+    for(word of mag){
+        if(word.includes('.'))word = word.slice(0,-1)
+        if(strCache[word]){
+            magCache[word] = magCache[word]+1 || 1
+        }
+    }
+    let count = 0
+    //console.log(strCache, magCache)
+    for(word in strCache){
+        //console.log(strCache[word],magCache[word])
+        if(magCache[word] >= strCache[word]) count++
+    }
+    
+    return count === Object.keys(strCache).length
+}
+//returns boolean true if str can be 'cut from' magazine, false otherwise
+console.log(ransomNote("sit ad est sint", magazine),"true")
+console.log(ransomNote("sit ad est love", magazine),"false")
+console.log(ransomNote("sit ad est sint in in", magazine),"true")
+console.log(ransomNote("sit ad est sint in in in in", magazine),"false")
