@@ -139,27 +139,43 @@ function ransomNote(str,magazine){
     //for loop of str, create cache
     //for loop of magazine, once equal to str break, otherwise return false
     //return true
-    let strCache = {}
-    let words = str.split(' ')
-    for(word of words){
-        strCache[word] = strCache[word] + 1 || 1
+    // let strCache = {}
+    // let words = str.split(' ')
+    // for(word of words){
+    //     strCache[word] = strCache[word] + 1 || 1
+    // }
+    // let magCache = {}
+    // let mag = magazine.split(' ')
+    // for(word of mag){
+    //     if(word.includes('.'))word = word.slice(0,-1)
+    //     if(strCache[word]){
+    //         magCache[word] = magCache[word]+1 || 1
+    //     }
+    // }
+    // let count = 0
+    // //console.log(strCache, magCache)
+    // for(word in strCache){
+    //     //console.log(strCache[word],magCache[word])
+    //     if(magCache[word] >= strCache[word]) count++
+    // }
+    // return count === Object.keys(strCache).length
+
+    //leon's solution
+    const noteWords = str.split(' ')
+    const magazineWords = magazine.split(' ')
+    const magazineHash = {}
+    let possible = true
+    for(let word of magazineWords){
+        magazineHash[word] = magazineHash[word] +1 || 1
     }
-    let magCache = {}
-    let mag = magazine.split(' ')
-    for(word of mag){
-        if(word.includes('.'))word = word.slice(0,-1)
-        if(strCache[word]){
-            magCache[word] = magCache[word]+1 || 1
+    for(let word of noteWords){
+        if(magazineHash[word] && magazineHash[word]>0){
+            magazineHash[word]--
+        }else{
+            possible = false
         }
     }
-    let count = 0
-    //console.log(strCache, magCache)
-    for(word in strCache){
-        //console.log(strCache[word],magCache[word])
-        if(magCache[word] >= strCache[word]) count++
-    }
-    
-    return count === Object.keys(strCache).length
+    return possible
 }
 //returns boolean true if str can be 'cut from' magazine, false otherwise
 console.log(ransomNote("sit ad est sint", magazine),"true")
