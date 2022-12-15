@@ -164,18 +164,20 @@ function ransomNote(str,magazine){
     const noteWords = str.split(' ')
     const magazineWords = magazine.split(' ')
     const magazineHash = {}
-    let possible = true
+    //let possible = true
     for(let word of magazineWords){
-        magazineHash[word] = magazineHash[word] +1 || 1
+        magazineHash[word] = magazineHash[word] + 1 || 1
     }
     for(let word of noteWords){
         if(magazineHash[word] && magazineHash[word]>0){
             magazineHash[word]--
         }else{
-            possible = false
+            //possible = false
+            return false
         }
     }
-    return possible
+    //return possible
+    return true
 }
 //returns boolean true if str can be 'cut from' magazine, false otherwise
 console.log(ransomNote("sit ad est sint", magazine),"true")
