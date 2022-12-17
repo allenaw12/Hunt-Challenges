@@ -186,4 +186,39 @@ console.log(ransomNote("sit ad est sint in in", magazine),"true")
 console.log(ransomNote("sit ad est sint in in in in", magazine),"false")
 
     //Day 28
-//
+//Given an array of numbers, return all pairs that add up to a given sum. The numbers can be used more than once.
+// describe("Two Sum", () => {
+//     it("Should implement two sum", () => {
+//      assert.deepEqual(twoSum([1, 2, 2, 3, 4], 4), [[2, 2], [3, 1]]);
+//     });
+//    });
+
+//parameters take in an array of nums and a number, is array always integers? is num always positive and an integer? is either every empty or 0?
+function twoSum(arr, num){
+    //initial thought is nested for loops...for each number, check against each number and return pairs that add up to num into a catch array, return that array
+    // let pairs = []
+    // for(n of arr){
+    //     for(v of arr){
+    //         if((n+v) === num) pairs.push([n,v])
+    //     }
+    // }
+    // return pairs
+    //adam help solution
+
+    //leon solution
+    const pairs = []
+    const nums = {}
+
+    for(const num1 of arr){
+        const num2 = num-num1
+        if(nums[num2]){
+            pairs.push([num1, num2])
+        }else{
+            nums[num1] = 1
+        }
+    }
+    return pairs
+}
+//returns array of arrays of 2 numbers that add up to given number
+console.log(twoSum([1, 2, 2, 3, 4], 4), "[[2, 2], [3, 1]]")
+console.log(twoSum([3,5,6,4,4,1,2], 10), "[[5,5],[4,6]]")
