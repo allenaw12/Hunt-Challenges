@@ -203,21 +203,39 @@ function twoSum(arr, num){
     //     }
     // }
     // return pairs
+
     //adam help solution
+    const result = []
+    const cache = {}
+    const usedPairs = {}
 
-    //leon solution
-    const pairs = []
-    const nums = {}
+    for(let numb of arr){
+        if(!cache[numb]) cache[numb] = num - numb
+    }
 
-    for(const num1 of arr){
-        const num2 = num-num1
-        if(nums[num2]){
-            pairs.push([num1, num2])
-        }else{
-            nums[num1] = 1
+    for(let numb in cache){
+        if(cache[num - +numb] && !usedPairs[numb]){
+            result.push([+numb, cache[numb]])
+            usedPairs[numb] = cache[numb]
+            usedPairs[cache[numb]] = +numb
         }
     }
-    return pairs
+    return result
+
+    // //leon solution
+
+    // const pairs = []
+    // const nums = {}
+
+    // for(const num1 of arr){
+    //     const num2 = num-num1
+    //     if(nums[num2]){
+    //         pairs.push([num1, num2])
+    //     }else{
+    //         nums[num1] = 1
+    //     }
+    // }
+    // return pairs
 }
 //returns array of arrays of 2 numbers that add up to given number
 console.log(twoSum([1, 2, 2, 3, 4], 4), "[[2, 2], [3, 1]]")
