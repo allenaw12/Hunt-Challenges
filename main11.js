@@ -22,9 +22,21 @@ const fibonacci = (n) => {
     //create a for loop that creates the numbers, and loops n number of times, have an array catch numbers
     //return last index of array(index n)
     let arr = [0,1]
-    for(i = 2; i <= n ; i++){
-        let sum = arr[i-1] + arr[i-2]
-        arr.push(sum)
+    // for(i = 2; i <= n ; i++){
+    //     let sum = arr[i-1] + arr[i-2]
+    //     arr.push(sum)
+    // }
+    // let i = 2
+    // while(i <= n){
+    //     let sum = arr[i-1] + arr[i-2]
+    //     arr.push(sum)
+    //     i++
+    // }
+    // return arr[n]
+
+    //leon's solution
+    for(let i = 2; i<= n; i++){
+        arr[i] = arr[i-1] + arr[i-2]
     }
     return arr[n]
 }
