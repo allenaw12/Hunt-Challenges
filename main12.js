@@ -52,3 +52,7 @@ console.log(fibonacci(2), 1)
 console.log(fibonacci(3), 2)
 console.log(fibonacci(4), 3)
 console.log(fibonacci(10), 55)
+
+    //Day 30
+//talking recursion: remember to have a 'base case' and a recursive case
+//-base case is like an out, stop running the loop
