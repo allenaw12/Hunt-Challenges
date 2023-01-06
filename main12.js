@@ -73,22 +73,28 @@ console.log(fibonacci(10), 55)
 // console.log(recurFib(5), 5)
 
 //memo fib
-let cache = {}
-let memoFib = (n,cache) => {
-        //console.log('call',cache)
+var cache = {}
+let fib = (n) => {
+    let memoFib = (n,cache) => {
+        console.log('call',cache)
         let result
         if(cache[n]){
-            //console.log('cached', n)
+            console.log('cached', n)
             return cache[n]
         }else if(n === 1 || n === 2){
             result = 1
         }else{
-           //console.log('else',n)
+           console.log('else',n)
             result = memoFib(n-1, cache) + memoFib(n-2, cache)
         }
     cache[n] = result
     return result
+    }
+    return memoFib(n, cache)
 }
-console.log(memoFib(5,cache), 5)
-console.log(memoFib(5,cache), 5)
-console.log(memoFib(10,cache),55)
+console.log(fib(5), 5)
+console.log(fib(5), 5)
+console.log(fib(10),55)
+
+//bottom up
+
