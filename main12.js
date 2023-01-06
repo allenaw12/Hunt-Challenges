@@ -56,3 +56,39 @@ console.log(fibonacci(10), 55)
     //Day 30
 //talking recursion: remember to have a 'base case' and a recursive case
 //-base case is like an out, stop running the loop
+
+    //Day 31
+//talking about memoization: we were late after movie lol
+//memoize != memorize XD
+//recurse fib
+// let recurFib = (n) => {
+//     let result
+//     if(n ===1 || n === 2){
+//         result = 1
+//     }else{
+//         result = recurFib(n-1) + recurFib(n-2)
+//     }
+//     return result
+// }
+// console.log(recurFib(5), 5)
+
+//memo fib
+let cache = {}
+let memoFib = (n,cache) => {
+        //console.log('call',cache)
+        let result
+        if(cache[n]){
+            //console.log('cached', n)
+            return cache[n]
+        }else if(n === 1 || n === 2){
+            result = 1
+        }else{
+           //console.log('else',n)
+            result = memoFib(n-1, cache) + memoFib(n-2, cache)
+        }
+    cache[n] = result
+    return result
+}
+console.log(memoFib(5,cache), 5)
+console.log(memoFib(5,cache), 5)
+console.log(memoFib(10,cache),55)
