@@ -10,6 +10,14 @@
 function memoize(){
     let memo = {}
 return (num)=>{
+    //loop
+    //if(num===0)return 1
+    //let nums = []
+    //for(let i=1;i<=num;i++){
+    //nums.push(i)
+    //}
+    //return nums.reduce((a,c)=>a*c,1)
+
     //recursion
     //if num is 0 or 1, return 1
     //otherwise return num times factorial num-1
@@ -40,3 +48,8 @@ console.log(factorial(10), 3628800)
 // console.log(factorial(0), 1)
 // console.log(factorial(5), 120)
 // console.log(factorial(10), 3628800)
+
+    //Day 33
+//can solve factorial with loop as well...
+//speed and overall complexity
+//loop will be better and faster than recursion UNTIL you add memoization
