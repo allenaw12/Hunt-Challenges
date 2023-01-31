@@ -11,31 +11,47 @@ let mygcd = (int1, int2) => {
     //set 2 arrays, empty, and for loop thru numbers to divide into 2 integers
     //sort arrays and filter commons between both
     //return highest number from filtered array
-    let divisors1 = []
-    let divisors2 = []
-    for(i=1;i<Math.max(int1,int2);i++){
-        let div1 = int1/i
-        let div2 = int2/i
-        if((!divisors1.includes(div1) || !divisors1.includes(i)) && Number.isInteger(div1)){
-            divisors1.push(div1)
-            divisors1.push(i)}
-        if((!divisors2.includes(div2)  || !divisors2.includes(i)) && Number.isInteger(div2)){
-            divisors2.push(div2)
-            divisors2.push(i)}
-    }
-    let larger = Math.max(divisors1.length, divisors2.length)
-    let smaller
-    if(larger === divisors1.length){
-        larger = divisors1
-        smaller = divisors2
+    // let divisors1 = []
+    // let divisors2 = []
+    // for(i=1;i<Math.max(int1,int2);i++){
+    //     let div1 = int1/i
+    //     let div2 = int2/i
+    //     if((!divisors1.includes(div1) || !divisors1.includes(i)) && Number.isInteger(div1)){
+    //         divisors1.push(div1)
+    //         divisors1.push(i)}
+    //     if((!divisors2.includes(div2)  || !divisors2.includes(i)) && Number.isInteger(div2)){
+    //         divisors2.push(div2)
+    //         divisors2.push(i)}
+    // }
+    // let larger = Math.max(divisors1.length, divisors2.length)
+    // let smaller
+    // if(larger === divisors1.length){
+    //     larger = divisors1
+    //     smaller = divisors2
+    // }else{
+    //     larger = divisors2
+    //     smaller = divisors1
+    // }
+    // let common = larger.filter(el => smaller.includes(el))
+    // return common.sort((a,b)=>b-a)[0] || 1
+
+    //recursion you say....
+        //first attempt
+    let max=Math.max(int1, int2)
+    let min=Math.min(int1, int2)
+    console.log(max, min)
+    if(max % min === 0){
+        //console.log(min)
+        return min
     }else{
-        larger = divisors2
-        smaller = divisors1
+        console.log(max%min)
+        return mygcd(max, max%min)
     }
-    let common = larger.filter(el => smaller.includes(el))
-    return common.sort((a,b)=>b-a)[0] || 1
 }
 //returns the highest common divisor of the 2 given numbers, at least 1
 console.log(mygcd(30,12),6)
 console.log(mygcd(8,9),1)
 console.log(mygcd(1,1),1)
+console.log(mygcd(60,12),12)
+console.log(mygcd(10927782,6902514), 846)
+console.log(mygcd(1590771464,1590771620),4)
