@@ -95,3 +95,102 @@ console.log(mgcdRecurs(1,1),1)
 console.log(mgcdRecurs(60,12),12)
 console.log(mgcdRecurs(10927782,6902514), 846)
 console.log(mgcdRecurs(1590771464,1590771620),4)
+
+    //Day 36
+//Waiting Lines
+// In this problem, we are going to be implementing our own enqueue, dequeue, and size methods for the queue constructor we are creating, so we should be able to create new instances of the Queue.
+// The enqueue method takes in the item as a parameter, while the dequeue method does not.
+// The size method simply returns the number of items in the queue.
+// Wait, what?
+// To enqueue an item into the queue means to insert an item into the back, or tail, of the queue.
+// To dequeue an item means means to remove the item at the front, or head, of the queue.
+// In a queue, we remove the item the least recently added.
+// JavaScript Methodology
+// Queues can be implemented in JavaScript using arrays.
+// You can use the built in push or unshift functions in order to add items to the queue array as well as the shift or pop to remove them.
+
+class Queue {
+    constructor(){
+        this.storage = {}
+        this.head = 0
+        this.tail = 0
+    }
+    
+    dequeue(){
+        let removed = this.storage[this.head]
+        delete this.storage[this.head]
+        this.head++
+        return removed
+    }
+
+    enqueue(element){
+        if(element.length === 0){
+            return "there's nothing to store"
+        }else{
+            this.storage[this.tail] = element
+            this.tail++
+        }
+    }
+
+    size(){
+        return this.tail - this.head
+    }
+}
+
+let queue = new Queue
+queue.enqueue('velociraptor')
+queue.enqueue('trex')
+queue.enqueue('triceratops')
+queue.dequeue()
+
+class Stack{
+    constructor(){
+        this.storage = {}
+        this.size = 0
+    }
+
+    push(element){
+        this.size++
+        this.storage[this.size] = element
+    }
+
+    pop(){
+        let removed = this.storage[this.size]
+        delete this.storage[this.size]
+        this.size--
+        return removed
+    }
+
+    peek(){
+        return this.storage[this.size]
+    }
+}
+
+let stack = new Stack
+stack.push('lord of the rings')
+stack.push('jurassic park')
+stack.push('fountainhead')
+
+//codewars version
+var Queue = function() {
+    // implement your Queue constructor here
+        this.storage={}
+        this.head=0
+        this.tail=0
+  };
+  
+  Queue.prototype.enqueue = function(item) {
+    this.storage[this.tail] = item
+    this.tail++
+  };
+  
+  Queue.prototype.dequeue = function() {
+    let removed = this.storage[this.head]
+    delete this.storage[this.head]
+    this.head++
+    return removed
+  };
+  
+  Queue.prototype.size = function() {
+    return this.tail - this.head < 0 ? 0 : this.tail-this.head
+  };
