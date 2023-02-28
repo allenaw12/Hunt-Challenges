@@ -191,3 +191,13 @@ listSeven.append(7)
 console.log(findMiddleNode(listSeven.head),'length:7, val is 4')
 listSeven.append(8)
 console.log(findMiddleNode(listSeven.head),'length:8, val is 5')
+
+    //Day 40
+//Given the head fo a singly linked list, reverse the list, and return the reversed list.
+function reverseList(head){
+
+}
+console.log(listSthree,listSfour, listSodd)
+console.log(reverseList(listSthree.head),'length:3, should reverse into descending order vals')
+console.log(reverseList(listSfour.head),'length:4, should reverse into descending order vals')
+console.log(reverseList(listSodd.head),'length:5, should reverse into descending order vals')
