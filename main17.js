@@ -95,6 +95,19 @@ class LinkedListS{
             return removed.value
         }
     }
+    //reverse list
+    reverseList(){
+        this.tail = this.head
+        let current = this.head
+        let last = null
+        while(current){
+            let temp = current.next
+            current.next = last
+            last = current
+            current = temp
+        }
+        this.head = last
+    }
     //pop from end
     removeTail(){
         //if empty list
@@ -162,6 +175,9 @@ listSeven.append(5)
 listSeven.append(6)
 listSeven.prepend(2)
 listSeven.prepend(1)
+// console.log(listSeven)
+// listSeven.reverseList()
+//listSeven.reverseList()
 let listSodd = new LinkedListS
 listSodd.append(3)
 listSodd.append(4)
@@ -181,23 +197,63 @@ listSfour.append(2)
 listSfour.append(3)
 listSfour.append(4)
 
-console.log(findMiddleNode(list.head),'length:1, val is 1')
-console.log(findMiddleNode(listStwo.head),'length:2, val is 2')
-console.log(findMiddleNode(listSthree.head),'length:3, val is 2')
-console.log(findMiddleNode(listSfour.head),'length:4, val is 3')
-console.log(findMiddleNode(listSodd.head),'length:5, val is 3')
-console.log(findMiddleNode(listSeven.head),'length:6, val is 4')
-listSeven.append(7)
-console.log(findMiddleNode(listSeven.head),'length:7, val is 4')
-listSeven.append(8)
-console.log(findMiddleNode(listSeven.head),'length:8, val is 5')
+// console.log(findMiddleNode(list.head),'length:1, val is 1')
+// console.log(findMiddleNode(listStwo.head),'length:2, val is 2')
+// console.log(findMiddleNode(listSthree.head),'length:3, val is 2')
+// console.log(findMiddleNode(listSfour.head),'length:4, val is 3')
+// console.log(findMiddleNode(listSodd.head),'length:5, val is 3')
+// console.log(findMiddleNode(listSeven.head),'length:6, val is 4')
+// listSeven.append(7)
+// console.log(findMiddleNode(listSeven.head),'length:7, val is 4')
+// listSeven.append(8)
+// console.log(findMiddleNode(listSeven.head),'length:8, val is 5')
 
     //Day 40
-//Given the head fo a singly linked list, reverse the list, and return the reversed list.
+//Given the head of a singly linked list, reverse the list, and return the reversed list.
 function reverseList(head){
-
+    //tagging onto yesterday: find middle node of list, mid.next would be made .next=mid and vice versa
+    //loop and find tail and save into new head variable
+    // let count = 1
+    // let node = head
+    // // let newHead = head
+    // while(node.next){
+    //     count++
+    //     // newHead = node.next
+    //     node = node.next
+    // }
+    // console.log(count)
+    // let newList = []
+    // for(let i=1;i<=count;i++){
+    //     let nexts = '.next'.repeat(count-i)
+    //     console.log(head + nexts)
+    // }
+    // return newList
+    // let current = head
+    // let prev = null
+    // while(current){
+    //     console.log(current, 'head')
+    //     let temp = current.next
+    //     console.log(temp, 'next')
+    //     current.next = prev
+    //     console.log(current.next, 'new next')
+    //     prev = current
+    //     console.log(prev, 'next next')
+    //     current = temp
+    //     console.log(current, 'new head')
+    // }
+    // return prev
+    let current = head
+    let last = null
+    while(current){
+        let temp = current.next
+        current.next = last
+        last = current
+        current = temp
+    }
+    return last
 }
 console.log(listSthree,listSfour, listSodd)
 console.log(reverseList(listSthree.head),'length:3, should reverse into descending order vals')
 console.log(reverseList(listSfour.head),'length:4, should reverse into descending order vals')
 console.log(reverseList(listSodd.head),'length:5, should reverse into descending order vals')
+console.log(listSthree,listSfour, listSodd)
