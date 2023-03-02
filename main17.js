@@ -210,50 +210,57 @@ listSfour.append(4)
 
     //Day 40
 //Given the head of a singly linked list, reverse the list, and return the reversed list.
-function reverseList(head){
-    //tagging onto yesterday: find middle node of list, mid.next would be made .next=mid and vice versa
-    //loop and find tail and save into new head variable
-    // let count = 1
-    // let node = head
-    // // let newHead = head
-    // while(node.next){
-    //     count++
-    //     // newHead = node.next
-    //     node = node.next
-    // }
-    // console.log(count)
-    // let newList = []
-    // for(let i=1;i<=count;i++){
-    //     let nexts = '.next'.repeat(count-i)
-    //     console.log(head + nexts)
-    // }
-    // return newList
-    // let current = head
-    // let prev = null
-    // while(current){
-    //     console.log(current, 'head')
-    //     let temp = current.next
-    //     console.log(temp, 'next')
-    //     current.next = prev
-    //     console.log(current.next, 'new next')
-    //     prev = current
-    //     console.log(prev, 'next next')
-    //     current = temp
-    //     console.log(current, 'new head')
-    // }
-    // return prev
-    let current = head
-    let last = null
-    while(current){
-        let temp = current.next
-        current.next = last
-        last = current
-        current = temp
-    }
-    return last
-}
+// function reverseList(head){
+//     //tagging onto yesterday: find middle node of list, mid.next would be made .next=mid and vice versa
+//     //loop and find tail and save into new head variable
+//     // let count = 1
+//     // let node = head
+//     // // let newHead = head
+//     // while(node.next){
+//     //     count++
+//     //     // newHead = node.next
+//     //     node = node.next
+//     // }
+//     // console.log(count)
+//     // let newList = []
+//     // for(let i=1;i<=count;i++){
+//     //     let nexts = '.next'.repeat(count-i)
+//     //     console.log(head + nexts)
+//     // }
+//     // return newList
+//     // let current = head
+//     // let prev = null
+//     // while(current){
+//     //     console.log(current, 'head')
+//     //     let temp = current.next
+//     //     console.log(temp, 'next')
+//     //     current.next = prev
+//     //     console.log(current.next, 'new next')
+//     //     prev = current
+//     //     console.log(prev, 'next next')
+//     //     current = temp
+//     //     console.log(current, 'new head')
+//     // }
+//     // return prev
+//     let current = head
+//     let last = null
+//     while(current){
+//         let temp = current.next
+//         current.next = last
+//         last = current
+//         current = temp
+//     }
+//     return last
+// }
 console.log(listSthree,listSfour, listSodd)
 console.log(reverseList(listSthree.head),'length:3, should reverse into descending order vals')
 console.log(reverseList(listSfour.head),'length:4, should reverse into descending order vals')
 console.log(reverseList(listSodd.head),'length:5, should reverse into descending order vals')
 console.log(listSthree,listSfour, listSodd)
+
+    //Day 41
+//a shortened way to write reverse! :O
+function reverseList(head, last = null){
+    while(head)[head.next, last, head] = [last, head, head.next]
+    return last
+}
