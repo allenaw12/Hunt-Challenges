@@ -103,6 +103,7 @@ class BST {
             result.push(node.value)
             if(node.right) traverse(node.right)
         }
+        traverse(this.root)
         return result
     }
     //root left right
@@ -113,6 +114,7 @@ class BST {
             if(node.left)traverse(node.left)
             if(node.right) traverse(node.right)
         }
+        traverse(this.root)
         return result
     }
     //left right root
@@ -123,6 +125,7 @@ class BST {
             if(node.right) traverse(node.right)
             result.push(node.value)
         }
+        traverse(this.root)
         return result
     }
     //breadth first search => level by level
@@ -132,7 +135,7 @@ class BST {
         queue.push(this.root)
         while(queue.length){
             let currentNode = queue.shift()
-            result.push(currentNode)
+            result.push(currentNode.value)
             if(currentNode.left){
                 queue.push(currentNode.left)
             }
@@ -156,8 +159,10 @@ class BST {
 // Constraints:
 // The number of nodes in the tree is in the range [0, 104].
 // -100 <= Node.val <= 100
-//leon's example bfs => movie theater example()
+//leon's example breadth first search => movie theater example(you ask the person in front of you how many rows are in front of them, since they can't see all the rows, they are asking the person in front of them the same question, til the first row answers 0(base case lol) then it collapses back)
 let maxDepth = root => {
+    //since recursion, base case if root is null
     if(!root)return 0
+    //recursing part, each call will add 1 and largest one as collapse back will be returned
     return Math.max(maxDepth(root.left),maxDepth(root.right))+1
 }
