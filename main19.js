@@ -69,8 +69,8 @@ function binarySearch(nums,target){
     }
     return nums[left] === target ? left : -1
 }
-console.log(binSearch([-1,0,3,5,9,12],2), '-1')
-console.log(binSearch([-1,0,3,5,9,12],9), '4')
+// console.log(binSearch([-1,0,3,5,9,12],2), '-1')
+// console.log(binSearch([-1,0,3,5,9,12],9), '4')
 
 function dfsInOrder(arr, target){
         let result = arr
@@ -202,8 +202,31 @@ class BST{
 
     //Day 44
 //Binary Search
-let binSearch = (arr, target) => {
-
+function binSearch(arr, target){
+    //starting and ending indices
+    let left = 0, right=arr.length-1
+    //want to split in half(find mid value) and check if target is larger or smaller than that
+    //while right is greater than left
+    while(right>left){
+        //mid is finding difference of smallest and biggest indices and dividing by 2, and rounding up
+        let mid = Math.ceil((left+right)/2)
+        //console.log(right, left, mid)
+        //if target equals mid index value, just return that
+        if(target === arr[mid]){
+            //console.log('target equal to mid value!')
+            return mid
+        //else if target is less than middle value...set right(high index) to mid-1 (since you don't need mid value in your new array)
+        }else if(target < arr[mid]){
+            right = mid-1
+        //last else, if target is greater than mid value....set left(low index) to mid+1 (since you don't need mid value in new array)
+        }else{
+            left = mid+1
+        }
+    }
+    return target === arr[left] ? left : -1
 }
 console.log(binSearch([-1,0,3,5,9,12],2), '-1')
 console.log(binSearch([-1,0,3,5,9,12],9), '4')
+console.log(binSearch([-1,0,2,3,5,9,12],3), '3')
+console.log(binSearch([-1,0,2,3,5,9,12],0), '1')
+console.log(binSearch([-1,0,2,3,5,9,12],8), '-1')
