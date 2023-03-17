@@ -16,7 +16,8 @@
 // nums is sorted in ascending order
 
 //Binary Search
-function binSearch(arr,target){
+//function binSearch(arr,target){
+    //try 1
     // let midInd = Math.floor(arr.length/2)-1
     // if(arr.length === 1 && target !== arr[0])return -1
     // if(target === arr[midInd]){
@@ -26,19 +27,35 @@ function binSearch(arr,target){
     // }else if(target < arr[midInd]){
     //     binSearch(arr.slice(0,midInd+1), target)
     // }
-    let current = arr
-    while(current.length>=1){
-        let mid = Math.floor(current.length/2)
-        if(target === current[mid]){
-            return mid
-        }else if(target > current[mid]){
-            current = current.slice(mid)
-        }else if(target < current[mid]){
-            current = current.slice(0,mid)
-        }
-    }
-    return -1
-}
+    //try 2
+    // let current = arr
+    // while(current.length>1){
+    //     let mid = Math.floor(current.length/2)
+    //     if(target === current[mid]){
+    //         return mid
+    //     }else if(target > current[mid]){
+    //         current = current.slice(mid)
+    //     }else if(target < current[mid]){
+    //         current = current.slice(0,mid)
+    //     }
+    // }
+    // return -1
+    //try 3
+    //after looking at leon's solution
+    //beginning and end of input array indices
+//     let left = 0, right=arr.length-1
+//     //loop and slice in half to locate target value, changing left and right values to dial down, if they equal or left becomes greater than right, loop stops
+//     while(left<right){
+//         // let mid = left + Math.floor((right-left+1)/2)
+//         let mid = Math.floor((right+1)/2)
+//         if(target < arr[mid]){
+//             right = mid-1
+//         }else{
+//             left = mid
+//         }
+//     }
+//     return target === arr[left] ? left : -1
+// }
 //leon's solution
 function binarySearch(nums,target){
     let left = 0,right=nums.length-1
@@ -52,8 +69,8 @@ function binarySearch(nums,target){
     }
     return nums[left] === target ? left : -1
 }
-console.log(binSearch([-1,0,3,5,9,12],2), -1)
-console.log(binSearch([-1,0,3,5,9,12],9), 4)
+console.log(binSearch([-1,0,3,5,9,12],2), '-1')
+console.log(binSearch([-1,0,3,5,9,12],9), '4')
 
 function dfsInOrder(arr, target){
         let result = arr
@@ -182,3 +199,11 @@ class BST{
         return result
     }
 }
+
+    //Day 44
+//Binary Search
+let binSearch = (arr, target) => {
+
+}
+console.log(binSearch([-1,0,3,5,9,12],2), '-1')
+console.log(binSearch([-1,0,3,5,9,12],9), '4')
